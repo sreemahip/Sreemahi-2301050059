@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Timeline</title>
+    <style>
+        /* Add your CSS styling here */
+        /* Style for timeline container */
+        .timeline {
+            list-style: none;
+            padding: 0;
+        }
+        /* Style for each timeline item */
+        .timeline li {
+            cursor: pointer;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        /* Style for event pages */
+        .event-page {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Timeline -->
+<ul class="timeline">
+    <!-- Example timeline items -->
+    <li class="event" data-year="1776">1776 - Declaration of Independence</li>
+    <li class="event" data-year="1945">1945 - End of World War II</li>
+    <li class="event" data-year="1969">1969 - Apollo 11 Moon Landing</li>
+    <!-- Add more timeline items here -->
+</ul>
+
+<!-- Event Pages -->
+<div class="event-page" id="1776">
+    <h2>1776 - Declaration of Independence</h2>
+    <p>Content related to the Declaration of Independence...</p>
+</div>
+<div class="event-page" id="1945">
+    <h2>1945 - End of World War II</h2>
+    <p>Content related to the end of World War II...</p>
+</div>
+<div class="event-page" id="1969">
+    <h2>1969 - Apollo 11 Moon Landing</h2>
+    <p>Content related to the Apollo 11 moon landing...</p>
+</div>
+<!-- Add more event pages here -->
+
+<script>
+    // JavaScript to handle click events on timeline items
+    document.querySelectorAll('.timeline li').forEach(item => {
+        item.addEventListener('click', function() {
+            var year = this.getAttribute('data-year');
+            showEventPage(year);
+        });
+    });
+
+    // Function to show event page for a specific year
+    function showEventPage(year) {
+        // Hide all event pages
+        document.querySelectorAll('.event-page').forEach(page => {
+            page.style.display = 'none';
+        });
+        // Show the event page for the clicked year
+        document.getElementById(year).style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
